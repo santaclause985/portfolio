@@ -161,7 +161,41 @@ body{
   font-size:.72rem;
   letter-spacing:.04em;
 }
+@media print{
+  body{background:#fff;padding:10mm;gap:0;}
+  .card-wrap{max-width:100%;perspective:none;}
+  .card{transform:none !important;aspect-ratio:auto;display:grid;grid-template-columns:1fr 1fr;gap:8mm;}
+  .card-front,.card-back{
+    position:relative;backface-visibility:visible;-webkit-backface-visibility:visible;
+    transform:none;border-radius:8px;padding:20px;box-shadow:none;
+    background:#fff;border:2px solid #111;
+  }
+  .card-front::before,.card-back::before{display:none;}
+  .name{color:#111;font-size:14pt;}
+  .title{color:#2563EB;font-size:8pt;}
+  .logo{color:#111;font-size:11pt;}
+  .desc{color:#555;font-size:8pt;max-width:100%;}
+  .contact-item{color:#444;font-size:7pt;}
+  .contact-item svg{color:#2563EB;width:10px;height:10px;}
+  .hint{display:none;}
+  .back-label{color:#2563EB;font-size:7pt;}
+  .back-title{color:#111;font-size:12pt;}
+  .back-desc{color:#555;font-size:8pt;}
+  .back-icons a{border-color:#ddd;color:#555;}
+  .back-icons a:hover{transform:none;}
+}
 </style>
+<a class="print-btn" onclick="window.print()">🖨 Print</a>
+<style>
+.print-btn{
+  padding:12px 28px;border-radius:999px;font-weight:600;
+  background:linear-gradient(135deg,#2563EB 0%,#60A5FA 50%,#FACC15 100%);
+  color:#0B1220;border:none;cursor:pointer;font-size:.95rem;
+  transition:transform .35s cubic-bezier(.16,.84,.44,1), box-shadow .35s;
+  font-family:'Inter',sans-serif;
+}
+.print-btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(37,99,235,.35);}
+@media print{.print-btn{display:none;}}
 </head>
 <body>
 <div class="card-wrap">
